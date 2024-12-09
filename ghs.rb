@@ -5,14 +5,14 @@
 class Ghs < Formula
   desc "a npx-like script execution for gists"
   homepage "https://github.com/flexwie/ghs"
-  version "0.2"
+  version "0.3"
   license "MIT"
 
   depends_on "gh"
 
   on_macos do
-    url "https://github.com/flexwie/ghs/releases/download/v0.2/ghs_0.2_darwin_all.tar.gz"
-    sha256 "571ceb475b85031d8baa7b60137901c89fa3d17b763ecbbf3262670b1f4f0f1f"
+    url "https://github.com/flexwie/ghs/releases/download/v0.3/ghs_0.3_darwin_all.tar.gz"
+    sha256 "08f6ecdef2a883868758e9ef0ff7923881afa551941e4e63d70130d42477bac9"
 
     def install
       bin.install "ghs"
@@ -20,20 +20,24 @@ class Ghs < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/flexwie/ghs/releases/download/v0.2/ghs_0.2_linux_amd64.tar.gz"
-      sha256 "983facb7709769e446007ec519e174720c02233b2da3dfac055e23c22db08569"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/flexwie/ghs/releases/download/v0.3/ghs_0.3_linux_amd64.tar.gz"
+        sha256 "22d9f1f1872deebf82b5befbb5b421ccd231e7441665ae313b6e34ace05b529a"
 
-      def install
-        bin.install "ghs"
+        def install
+          bin.install "ghs"
+        end
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/flexwie/ghs/releases/download/v0.2/ghs_0.2_linux_arm64.tar.gz"
-      sha256 "8d9487bf48a5c709e67a92c3d3055d72659d884756d194ff6e24aeda4a7b70c3"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/flexwie/ghs/releases/download/v0.3/ghs_0.3_linux_arm64.tar.gz"
+        sha256 "c15e1dd61594e6380dce2ed2078eb320ab80446c8c10244b3093618daabb14d7"
 
-      def install
-        bin.install "ghs"
+        def install
+          bin.install "ghs"
+        end
       end
     end
   end
