@@ -12,7 +12,7 @@ class Ghs < Formula
 
   on_macos do
     url "https://github.com/flexwie/ghs/releases/download/v0.5/ghs_0.5_darwin_all.tar.gz"
-    sha256 "3d3c64969f0e8065653c540e715d22030ec2bcf8f4e3e159614aaabebc19ce89"
+    sha256 "30c9030c699fb901ffaa40bf519addb035385f065b28efbbba8947e9781e4709"
 
     def install
       bin.install "ghs"
@@ -23,7 +23,7 @@ class Ghs < Formula
     on_intel do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/flexwie/ghs/releases/download/v0.5/ghs_0.5_linux_amd64.tar.gz"
-        sha256 "fdc341b5a6ffc2deb4dd2308211d3c3318b54f3218799bd1f35a7bc392d53a00"
+        sha256 "fc94c53e6b7e2db671dc26b75aa4a117cbb80b83f308fc29018a89eae78149ea"
 
         def install
           bin.install "ghs"
@@ -33,7 +33,7 @@ class Ghs < Formula
     on_arm do
       if Hardware::CPU.is_64_bit?
         url "https://github.com/flexwie/ghs/releases/download/v0.5/ghs_0.5_linux_arm64.tar.gz"
-        sha256 "fa325163139d9fafa37b71f5c745e448bd8320f38e943d0a255854438eb5f7e1"
+        sha256 "0e9a553122396b7d8436d03d30be8a16d6e4e157edd081fb5553e50a8795be99"
 
         def install
           bin.install "ghs"
